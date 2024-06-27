@@ -1,6 +1,5 @@
 package com.go.def.br.eventoscoleta.main.service;
 
-
 import com.go.def.br.eventoscoleta.main.entity.Usuario;
 import com.go.def.br.eventoscoleta.main.enums.Uf;
 import com.go.def.br.eventoscoleta.main.repository.UsuarioRepository;
@@ -23,7 +22,6 @@ public class UsuarioService {
         return usuarioRepository.findByNomeContaining(nome);
     }
 
-
     public Usuario findByEmailAndSenha(String email, String senha, Uf uf) {
         Usuario usuario = usuarioRepository.findByEmailAndSenha(email, senha);
         if (usuario != null) {
@@ -38,4 +36,15 @@ public class UsuarioService {
         }
     }
 
+    public Usuario save(Usuario usuario) {
+        return usuarioRepository.save(usuario);
+    }
+
+    public boolean existsById(Long id) {
+        return usuarioRepository.existsById(id);
+    }
+
+    public Usuario findById(Long id) {
+        return usuarioRepository.findById(id).orElse(null);
+    }
 }

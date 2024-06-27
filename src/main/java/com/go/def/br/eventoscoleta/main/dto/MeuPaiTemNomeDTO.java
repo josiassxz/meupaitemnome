@@ -1,19 +1,13 @@
-package com.go.def.br.eventoscoleta.main.entity;
+package com.go.def.br.eventoscoleta.main.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Entity
-public class MeuPaiTemNome {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class MeuPaiTemNomeDTO {
     private int atendimentos;
     private int recPatComDna;
     private int recPatSemDna;
@@ -29,9 +23,5 @@ public class MeuPaiTemNome {
     private int pedidosHml;
     private int constaRegistroGenitor;
     private int naoConstaRegistroGenitor;
-
-    @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
-    @JsonIgnore
-    private Usuario usuario;
+    private Long usuarioId;
 }
